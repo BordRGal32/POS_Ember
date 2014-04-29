@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ordr POS</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">Order POS</nav>
+    <script type="text/x-handlebars" data-template-name="tables">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-info" id="table-list" >
+              <div class="panel-heading"><h4>Tables</h4></div>
+              <div class="panel-body">
+                {{#each}}
+                  <div class="col-md-6 table-cell">
+                    {{number}}
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+            <button {{action createTable}} class="btn btn-info">New Table</button>
+          </div>
+
+          <div class="col-md-8">
+            <div class="panel panel-info" id="table-select" >
+              <div class="panel-heading"><h4>Select your table</h4></div>
+              <div class="panel-body">
+               <p>stuff</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{outlet}}
+      </div>
+    </script>
+  <script src="js/lib/jquery-1.10.2.min.js"></script>
+  <script src="js/lib/handlebars-1.0.0.js"></script>
+  <script src="js/lib/ember.js"></script>
+  <script src="js/lib/ember-data.js"></script>
+  <script src="js/application.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/models/table.js"></script>
+  <script src="js/controllers/tables_controller.js"></script>
+
+  </body>
+
+</html>

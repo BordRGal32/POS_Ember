@@ -1,0 +1,13 @@
+<h3>New Table</h3>
+
+<form>
+  <div class="form-group">
+    <label for="number">Table Number</label>
+    {{input type="number" id="number" class="form-control" value=number}}
+  </div>
+  <div class="form-group">
+    <label for="number">Max Occupancy</label>
+    {{input type="number" id="occupancy" class="form-control" value=occupancy}}
+  </div>
+  <button {{action createTable}} class="btn btn-info">Save Table</button>
+</form>

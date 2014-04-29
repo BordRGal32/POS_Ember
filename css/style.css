@@ -1,0 +1,19 @@
+.table-cell {
+  border: 6px solid white;
+  text-align: center;
+  background-color: royalblue;
+  color: white;
+  font-size: 25px;
+}
+
+.container {
+  margin: 10px;
+  padding: 10px;
+}
+
+.navbar {
+  padding: 5px;
+  color: white;
+  font-size: 40px;
+  background-color: slategrey;
+}
