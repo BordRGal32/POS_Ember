@@ -16,26 +16,74 @@
               <div class="panel-heading"><h4>Tables</h4></div>
               <div class="panel-body">
                 {{#each}}
+                {{#if hasDiv }}
                   <div class="col-md-6 table-cell">
                     {{number}}
                   </div>
+                {{/if}}
                 {{/each}}
               </div>
             </div>
-            <button {{action createTable}} class="btn btn-info">New Table</button>
+            {{#link-to 'new' class="btn btn-info"}}New Table{{/link-to}}
           </div>
 
           <div class="col-md-8">
             <div class="panel panel-info" id="table-select" >
-              <div class="panel-heading"><h4>Select your table</h4></div>
+              <div class="panel-heading"><h4>Food Options</h4></div>
               <div class="panel-body">
-               <p>stuff</p>
+               <p>{{render 'item'}}</p>
               </div>
             </div>
           </div>
+          {{#link-to 'new_item' class="btn btn-info"}}Add New Menu Item{{/link-to}}
         </div>
-        {{outlet}}
+        <div class='row'>
+          {{outlet}}
+        </div>
       </div>
+
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="item">
+    <ul>
+      {{#each item in controller}}
+
+          <li>{{item.name}}</li>
+
+      {{/each}}
+    </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="new_item">
+      <h3>New Food Item<h3>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          {{input type="text" id="name" class="form-control" value=newName}}
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          {{input type="number" id="price" class="form-control" value=newPrice}}
+        </div>
+        <button {{action createItem}} class="btn btn-info">Add To Menu</button>
+      </form>
+
+     </script>
+
+    <script type="text/x-handlebars" data-template-name="new">
+      <h3>New Table</h3>
+
+      <form>
+        <div class="form-group">
+          <label for="number">Table Number</label>
+          {{input type="number" id="number" class="form-control" value=newNumber}}
+        </div>
+        <div class="form-group">
+          <label for="number">Max Occupancy</label>
+          {{input type="number" id="occupancy" class="form-control" value=newOccupancy}}
+        </div>
+        <button {{action createTable}} class="btn btn-info">Save Table</button>
+      </form>
     </script>
   <script src="js/lib/jquery-1.10.2.min.js"></script>
   <script src="js/lib/handlebars-1.0.0.js"></script>
@@ -45,7 +93,10 @@
   <script src="js/router.js"></script>
   <script src="js/models/table.js"></script>
   <script src="js/controllers/tables_controller.js"></script>
-
+  <script src="js/controllers/new_controller.js"></script>
+  <script src="js/controllers/item_controller.js"></script>
+  <script src="js/models/item.js"></script>
+ <script src="js/controllers/new_item_controller.js"></script>
   </body>
 
 </html>
